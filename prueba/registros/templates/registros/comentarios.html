@@ -1,0 +1,47 @@
+{% extends "inicio/encabezado.html" %} {% block titulo%}Comentarios {% endblock %}
+{% block imagen %} {% load static %} {% static 'inicio/imagenes/com.png' %}
+{%endblock %} {% block contenido%}
+
+<div class="page-header">
+  <div class="page-title">
+    <h3>Alumnos <small>Lista de Alumnos </small></h3>
+  </div>
+</div>
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+    <a href="{% url 'Principal' %}">
+      {%if request.path == '/'%} Principal {%else%} Principal{{request.path }}
+      {%endif%}
+    </a>
+  </ul>
+</div>
+<!-- Tabla de Alumnos -->
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Mensaje</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+ß
+  <tbody>
+    {% for comentariocontact in comentariocontacto %}
+    <tr>
+      <td class="text-semibold">{{comentariocontact.usuario}}</td>
+      <td class="muted">{{comentariocontact.mensaje}}</td>
+      <td class="text-semibold"> <a href="{%url 'Editar' comentariocontact.id%}">Editar</a></td>
+      <td class="text-center">
+        <a href="{%url 'Eliminar' comentariocontact.id%}">Eliminar</a>
+      </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+<!-- /Tabla de alumnos -->
+
+<!-- /Encabezado-->
+
+{% endblock %}
