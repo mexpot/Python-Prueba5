@@ -4,9 +4,9 @@ from ckeditor.fields import RichTextField
 
 class Alumnos(models.Model): #define la estructura de nuestra tabla
       matricula = models.CharField(max_length=12, verbose_name="Mat") #texto corto
-      nombre = models.TextField()
-      carrera = models.TextField()
-      turno = models.CharField(max_length=10)
+      nombre = models.TextField(verbose_name="Nombre")
+      carrera = models.TextField(default='carrera')
+      turno = models.TextField(max_length=10, default='Turno')
       imagen = models.ImageField(null=True,upload_to="fotos",verbose_name="Fotografía")
       created = models.DateTimeField(auto_now_add=True, verbose_name="crear") #Fecha y tiempo 
       updated = models.DateTimeField(auto_now_add=True, verbose_name="actualizar")
