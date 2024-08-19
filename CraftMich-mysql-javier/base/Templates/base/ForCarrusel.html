@@ -1,0 +1,83 @@
+{% extends "michoacan/home.html" %} {% block titulo%}Productos {% endblock %}
+{%block contenido%}
+
+<br>
+<h5 class="text-center">PRODUCTOS</h5>
+
+<div class="section" align="center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+        <form
+          action="{% url 'Producto' %}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-6 mb-3">
+              <input
+                type="text"
+                class="form-control"
+                name="producto"
+                placeholder="Nombre del producto"
+                required
+              />
+            </div>
+            
+            <div class="col-6 mb-3">
+              <select name="categoria" class="form-control">
+                <option value="decoraciones">Decoraciones tradicionales</option>
+                <option value="ropa">Ropa artesanal</option>
+                <option value="accesorios">Accesorios tradicionales</option>
+              </select>
+            </div>
+
+            <div class="col-12 mb-3">
+              <input
+                name="precio"
+                type="number"
+                class="form-control"
+                placeholder="Precio"
+                required
+              />
+            </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ubicacion"
+                  placeholder="Ubicacion"
+                  required
+                />
+              </div>
+            <div class="col-12 mb-3">
+              <input type="file" name="imagen" class="form-control" required />
+            </div>
+
+            <div class="col-12 mb-3">
+              <textarea
+                cols="30"
+                rows="7"
+                type="text"
+                class="form-control"
+                name="descripcion"
+                placeholder="Descripcion"
+                required
+              ></textarea>
+            </div>
+
+            <div class="col-12">
+              <input type="submit" value="Enviar" class="btn btn-primary" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+{% endblock %}

@@ -1,0 +1,47 @@
+
+{% extends "michoacan/home.html" %} Quienes Somos{% block titulo %}Bienvenida{% endblock %}
+
+{% block contenido %} 
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Nombre del Evento</th>
+			<th>Fecha del Evento</th>
+			<th>Hora del Evento</th>
+			<th>Lugar del Evento</th>
+			<th>Tipo de Evento</th>
+			<th>Descripcion del Evento</th>
+			<th>Imagen del evento</th>
+			<th>Editar Evento</th>
+			<th>Eliminar Evento</th>
+		</tr>
+	</thead>
+  <tbody>
+	{% for evento in evento %}
+	<tr>
+		<td class="muted">{{evento.nombre}}</td>
+		<td class="muted">{{evento.fecha}}</td>
+		<td class="muted">{{evento.hora}}</td>
+		<td class="muted">{{evento.lugar}}</td>
+		<td class="muted">{{evento.tipo}}</td>
+		<td class="muted">{{evento.descripcion}}</td>
+<td class="text-center">
+{% if evento.image %}
+<img src="{{ evento.image.url }}" alt="" class="img-media" height="150" width="150">
+{% endif %}
+</td>
+		<td class="text-center">
+<a href="{% url 'ConsultaIndividual' evento.id%}">Editar</a>
+</td>
+		<td class="text-center">
+			<a href="{% url 'Eliminar' evento.id %}">Eliminar</a>
+		</td>
+	</tr>
+	{% endfor%}
+ </tbody>
+</table><br>
+
+
+{% endblock %}
+

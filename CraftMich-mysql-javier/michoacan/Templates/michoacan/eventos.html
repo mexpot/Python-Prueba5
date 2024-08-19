@@ -1,0 +1,71 @@
+{% extends "michoacan/home.html" %} {% block titulo%}Eventos {% endblock %}
+{% block contenido%}
+
+<div class="section" align="center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+          <h1>
+            Nuestros Eventos
+          </h1>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="property-slider-wrap">
+          <div class="property-slider">
+            {% for eventos in eventos %}
+            <div class="property-item">
+              <a href=""                   class="img-fluid custom-img">
+                <img
+                  src="{{eventos.image.url}}"
+                  height="700"
+                  width="700"
+                  alt="Image"
+                  class="img-fluid custom-img"
+                />
+              </a>
+
+              <div class="property-content">
+                <div class="price mb-2"><span>{{eventos.nombre}}</span></div>
+                <div>
+                  <span class="d-block mb-2 text-black-50"></span>
+                  <span class="city d-block mb-3">Fecha: {{eventos.fecha}}</span>
+                  <span class="city d-block mb-3">Hora: {{eventos.hora}}</span>
+                  <span class="city d-block mb-3">Lugar: {{eventos.lugar}}</span>
+                  <span class="city d-block mb-3">Descripcion: {{eventos.tipo}}</span>
+                </div>
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+
+          <div
+            id="property-nav"
+            class="controls"
+            tabindex="0"
+            aria-label="Carousel Navigation"
+          >
+            <span
+              class="prev"
+              data-controls="prev"
+              aria-controls="property"
+              tabindex="-1"
+              >Anterior</span
+            >
+            <span
+              class="next"
+              data-controls="next"
+              aria-controls="property"
+              tabindex="-1"
+              >Siguiente</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
