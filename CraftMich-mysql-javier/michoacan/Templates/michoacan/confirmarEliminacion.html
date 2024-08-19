@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="favicon.png" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+{% load static%}
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+
+    <link rel="stylesheet" href="{%static 'michoacan/css/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{%static 'michoacan/css/aos.css' %}" />
+    <link rel="stylesheet" href="{%static 'michoacan/css/style.css' %}" />
+
+	
+	{% block contenido%}
+
+    <title>
+        Ver Eventos
+      </title>
+    </head>
+    <body>
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+  
+      <nav class="site-nav">
+        <div class="container">
+          <div class="menu-bg-wrap">
+            <div class="site-navigation">
+              <a href="index.html" class="logo m-0 float-start">Craft Mich.</a>
+  
+              <ul
+                class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+              >
+                <li><a href="index.html">Home</a></li>
+                <li class="has-children">
+                  <a href="properties.html">Servicios</a>
+                  <ul class="dropdown">
+                    <li><a href="#">Buy Property</a></li>
+                    <li><a href="#">Sell Property</a></li>
+                    <li class="has-children">
+                      <a href="#">Dropdown</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Sub Menu One</a></li>
+                        <li><a href="#">Sub Menu Two</a></li>
+                        <li><a href="#">Sub Menu Three</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">Màs</a></li>
+                <li class="active"><a href="">Eliminar Evento</a></li>
+              </ul>
+  
+              <a
+                href="#"
+                class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+                data-toggle="collapse"
+                data-target="#main-navbar"
+              >
+                <span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+      <div
+        class="hero page-inner overlay"
+        style="background-image: url('images/lambo.jpg')"
+      >
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+              <h1 class="heading" data-aos="fade-up">Ver Evento</h1>
+  
+              <nav
+                aria-label="breadcrumb"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <ol class="breadcrumb text-center justify-content-center">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li
+                    class="breadcrumb-item active text-white-50"
+                    aria-current="page"
+                  >
+                    Ver Eventos
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<form method="POST">
+{% csrf_token %}
+<br><br><br>
+<div class="container" align="center">
+    <h4>Eliminar Evento</h4>
+    <p>
+      <strong>¿Estas seguro que deseas Eliminar el evento seleccionado?.</strong>
+    </p>
+
+
+<button type="submit" class="btn btn-danger">Si</button>
+<a href="{% url 'ConsultarEvento' %}" class="btn btn-primary text-red">Cancelar</a>
+</div>
+</form>
+
+{% endblock %}
+
+<script src="{%static 'michoacan/js/bootstrap.bundle.min.js'  %}"></script>
+<script src="{%static 'michoacan/js/tiny-slider.js' %}"></script>
+<script src="{%static 'michoacan/js/aos.js' %}"></script>
+<script src="{%static 'michoacan/js/navbar.js' %}"></script>
+<script src="{%static 'michoacan/js/counter.js' %}"></script>
+<script src="{%static 'michoacan/js/custom.js' %}"></script>
+<style>
+  .text-red {
+    color: red;
+  }
+</style>

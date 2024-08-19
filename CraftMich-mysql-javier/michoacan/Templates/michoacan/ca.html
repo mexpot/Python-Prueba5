@@ -1,0 +1,107 @@
+{% extends "michoacan/home.html" %} {% block titulo%}Carrusel {% endblock %}
+{%block contenido%}
+
+<div class="section">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-6" id="servicios>
+      <a class="font-weight-bold text-primary heading"> Nuestros Productos </a>
+    </div>
+    <div class="col-lg-6 text-lg-end">
+      <p>
+        <a
+          href="services.html"
+          target="_blank"
+          class="btn btn-primary text-white py-3 px-4"
+          >Todos Nuestros Productos</a
+        >
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="property-slider-wrap">
+        <div class="property-slider">
+          {% for articulo in articulos %}
+          <div class="property-item">
+            <a href="" class="img">
+              <img
+                src="{{articulo.imagen.url}}"
+                height="500"
+                width="500"
+                alt="Image"
+                class="img-fluid"
+              />
+            </a>
+
+            <div class="property-content">
+              <div class="price mb-2"><span>$ {{articulo.precio}}</span></div>
+              <div>
+                <span class="d-block mb-2 text-black-50"></span>
+                <span class="city d-block mb-3">{{articulo.producto}}</span>
+
+                <div class="specs d-flex mb-4">
+                  <span class="d-block d-flex align-items-center me-3">
+                    <span class="icon-bed me-2"></span>
+                    <span class="caption">Delanteros</span>
+                  </span>
+                  <span class="d-block d-flex align-items-center">
+                    <span class="icon-bath me-2"></span>
+                    <span class="caption">Traseros</span>
+                  </span>
+                </div>
+                <a href="property-single.html" class="btn btn-primary py-2 px-3"
+                  >Mas detalles</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- .item -->
+          {% endfor %}
+
+          <!-- .item -->
+
+          <!-- .item -->
+
+          <!-- .item -->
+
+          <!-- .item -->
+
+          <!-- .item -->
+
+          <!-- .item -->
+
+          <!-- .item -->
+
+          <!-- .item -->
+        </div>
+
+        <div
+          id="property-nav"
+          class="controls"
+          tabindex="0"
+          aria-label="Carousel Navigation"
+        >
+          <span
+            class="prev"
+            data-controls="prev"
+            aria-controls="property"
+            tabindex="-1"
+            >Anterior</span
+          >
+          <span
+            class="next"
+            data-controls="next"
+            aria-controls="property"
+            tabindex="-1"
+            >Siguiente</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,1 @@
+alert("codigo incrustado en el head.");

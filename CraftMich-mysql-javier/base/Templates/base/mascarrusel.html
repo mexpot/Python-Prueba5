@@ -1,0 +1,31 @@
+{% extends "michoacan/home.html" %} {% block titulo%}Carrusel {% endblock %}
+{%block contenido%}
+
+<div class="section">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-7">
+        <div class="img-property-slide-wrap">
+          <div class="img-property-slide">
+            <img
+              src="{{ articulo.imagen.url }}"
+              alt="Image"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h2 class="heading text-primary">{{ articulo.producto }}</h2>
+        <p class="heading text-primary" style="font-size: 20px">
+          ${{ articulo.precio }}
+        </p>
+        <p class="heading text-primary" style="font-size: 18px">
+          Nos ubicamos en: {{ articulo.ubicacion }}
+        </p>
+        <p class="text-black-50">{{ articulo.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "michoacan/home.html" %} {% block titulo %}Bienvenida{% endblock %}
+{% block contenido %} {%if user.is_authenticated%}
+<h1>Hola {{ user.username }}</h1>
+{%else%}
+<a href="{% url 'sign_up' %}">Regístrate</a>
+{% endif %} {%endblock%}

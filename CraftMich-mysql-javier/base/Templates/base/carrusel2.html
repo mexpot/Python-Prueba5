@@ -1,0 +1,127 @@
+{% extends "michoacan/home.html" %} {% block titulo%}carrusel2 {% endblock %}
+{% block contenido%}
+
+
+
+<div class="section">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-6" id="servicios">
+        <div class="dropdown">
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-filter"></i> Filtrar
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="{%url 'carrusel4'%}">Decoraciones tradicionales</a></li>
+            <li><a class="dropdown-item" href="{%url 'carrusel3'%}">Accesorios tradicionales</a></li>
+            <li><a class="dropdown-item" href="{%url 'carrusel2'%}">Ropa artesanal</a></li>
+            <li><a class="dropdown-item" href="{%url 'Carrusel'%}">Ver todo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 text-lg-end">
+        <p>
+          <a
+            href="{%url 'carrusel2'%}"
+            target="_blank"
+            class="btn btn-primary text-white py-3 px-4"
+            >Ropa artesanal</a
+          >
+          {%if user.is_authenticated%}
+          <a
+            href="{%url 'Producto'%}"
+            class="btn btn-primary text-white py-3 px-4"
+            >Agregar Producto</a
+          >
+          {% endif %}
+
+        </p>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="property-slider-wrap">
+          <div class="property-slider">
+
+            {% for articulor in articulosr %}
+
+            <div class="property-item">
+              <a href="" class="img">
+                <img
+                  src="{{articulor.imagen.url}}"
+                  height="500"
+                  width="500"
+                  alt="Image"
+                  class="img-fluid"
+                />
+              </a>
+
+              <div class="property-content">
+                <div class="price mb-2"><span>$ {{articulor.precio}}</span></div>
+                <div>
+                  <span class="d-block mb-2 text-black-50"></span>
+                  <span class="city d-block mb-3">{{articulor.producto}}</span>
+                  <a
+                    href="{% url 'Mascarrusel' articulor.id %}"
+                    class="btn btn-primary py-2 px-3"
+                    >Mas detalles</a
+                  >
+
+                  {%if user.is_authenticated%}
+
+                  <a
+                  href="{%url 'Editarcarrusel' articulor.id %}"
+                  class="btn btn-primary py-2 px-3"
+                  tyle="background-color:blue;"
+                  >Editar</a
+                >
+                <a
+                href="{%url 'Eliminarcarrusel' articulor.id %}"
+                class="btn btn-primary py-2 px-3"
+                style="background-color:red;"
+                >Eliminar</a
+              >
+              {% endif %}
+                </div>
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+
+          <div
+            id="property-nav"
+            class="controls"
+            tabindex="0"
+            aria-label="Carousel Navigation"
+          >
+            <span
+              class="prev"
+              data-controls="prev"
+              aria-controls="property"
+              tabindex="-1"
+              >Anterior</span
+            >
+            <span
+              class="next"
+              data-controls="next"
+              aria-controls="property"
+              tabindex="-1"
+              >Siguiente</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

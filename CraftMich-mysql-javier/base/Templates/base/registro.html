@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario de registro</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/styles.css' %}">
+
+      
+    </script>
+</head>
+
+
+
+<body>
+  <section class="contenedor">
+    <div class="image-container">
+    <img src="{% static 'base/images/craftmich.jpg' %}" alt="Craft Mich">
+    </div>
+         <header>Formulario de registro</header>
+ 
+    <form method="POST" class="formulario" onsubmit="alert('Usuario Registrado')">
+     {% csrf_token %}
+ 
+     <div class="entrada">
+     <label for="usuario">Nombre de usuario:</label>
+     <input type="text" name="usuario" required>
+     </div>
+ 
+     <div class="entrada">
+     <label for="nombre">Nombre:</label>
+     <input type="text" name="nombre" required>
+     </div>
+ 
+     <div class="entrada">
+     <label for="email">Email:</label>
+     <input type="email" name="email" required>
+     </div>  
+ 
+ 
+     <div class="entrada">
+     <label for="password">Password:</label>
+     <input type="password" name="password"required>
+    </div>
+ 
+     <div class="entrada">
+     <label for="fecha">Ingresa la fecha:</label>
+     <input type="date" name="fecha" required>
+     </div>
+   
+     <div class="entrada">
+      <div class="columna">
+          <div class="caja-select">
+          <select name="roles" required>
+              <option hidden>Tipo de usuario</option>
+              <option value="usuario">Usuario normal</option>
+          <option value="admin">Administrador</option>
+          </select>
+          </div>
+      </div>
+  </div><br>
+ 
+      <button type="submit" value="Enviar">Enviar</button>
+      </form>
+     </section>
+   </body>
+ </html>
